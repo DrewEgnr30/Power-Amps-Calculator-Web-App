@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'AmsToKW',
+  name: 'AmpsToKW',
   data () {
     return {
       selected: null,
