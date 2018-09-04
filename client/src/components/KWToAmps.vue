@@ -48,7 +48,7 @@
         <label>Power factor: </label>
       </b-col>
       <b-col cols="5">
-        <b-form-input v-model="pf" :state="currentStatepf" type="number"></b-form-input>
+        <b-form-input v-model="pf" :state="currentStatepf" type="text"></b-form-input>
       </b-col>
       <b-col class="text-left" cols="1">
         <label></label>
@@ -90,13 +90,18 @@ export default {
   },
   computed: {
     currentStatekW () {
-      return this.kW >= 0 ? true : false 
+      return this.kW >= 0 ? true : false
     },
     currentStatevolts () {
       return this.volts >= 0 ? true : false
     },
     currentStatepf () {
-      return this.pf >= 0 ? true : false
+      return parseFloat(this.pf) >= 0  ? true : false
+    }
+  },
+  watch: {
+    pf: function(query){
+      console.log(parseFloat(query))
     }
   }
 }
